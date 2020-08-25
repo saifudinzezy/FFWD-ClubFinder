@@ -1,3 +1,6 @@
+//import data yang dibutuhkan disetiap file
+import clubs from './clubs.js';
+
 //class javascript
 class DataSource {
     //supaya bisa di akses lgsg dalam class

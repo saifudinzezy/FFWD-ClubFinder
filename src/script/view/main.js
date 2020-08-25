@@ -1,3 +1,6 @@
+//import data yang dibutuhkan disetiap file
+import DataSource from '../data/data-source.js';
+
 //arrow function () =>
 const main = () => {
     const searchElement = document.querySelector("#searchElement");
@@ -49,3 +52,6 @@ const main = () => {
 
     buttonSearchElement.addEventListener("click", onButtonSearchClicked);
 };
+
+//karena cuma satu maka export default
+export default main;
