@@ -1,16 +1,25 @@
+//arrow function () =>
 const main = () => {
     const searchElement = document.querySelector("#searchElement");
     const buttonSearchElement = document.querySelector("#searchButtonElement");
     const clubListElement = document.querySelector("#clubList");
 
-    const onButtonSearchClicked = () => {
-        const dataSource = new DataSource(renderResult, fallbackResult);
-        dataSource.searchClub(searchElement.value);
+    //ubah menajdi async await
+    //memanggil fun async seperti sync
+    const onButtonSearchClicked = async() => {
+        try {
+            const result = await DataSource.searchClub(searchElement.value);
+            renderResult(result);
+        } catch (error) {
+            fallbackResult(error);
+        }
     };
 
+    //arrow function () =>
     const renderResult = (results) => {
         clubListElement.innerHTML = "";
         results.forEach(function(club) {
+            //destructuring object
             const {
                 name,
                 fanArt,
@@ -20,6 +29,7 @@ const main = () => {
             const clubElement = document.createElement("div");
             clubElement.setAttribute("class", "club");
 
+            //Template literals `value`
             clubElement.innerHTML = `
                 <img class="fan-art-club" src="${fanArt}" alt="Fan Art">
                 <div class="club-info">
@@ -30,8 +40,10 @@ const main = () => {
         })
     };
 
+    //arrow function () =>
     const fallbackResult = (message) => {
         clubListElement.innerHTML = "";
+        //Template literals `value`
         clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     };
 

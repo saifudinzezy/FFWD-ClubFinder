@@ -42,3 +42,6 @@ const clubs = [{
 
     }
 ];
+
+//karena cuma satu maka export default
+export default clubs;
