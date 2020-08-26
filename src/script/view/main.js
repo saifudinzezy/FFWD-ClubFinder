@@ -1,10 +1,15 @@
+//karena berkas main.js perlu kode pada berkas search-bar.js tereksekusi,
+import '../component/search-bar.js';
 //import data yang dibutuhkan disetiap file
 import DataSource from '../data/data-source.js';
 
 //arrow function () =>
 const main = () => {
-    const searchElement = document.querySelector("#searchElement");
-    const buttonSearchElement = document.querySelector("#searchButtonElement");
+    //search-bar component
+    const searchElement = document.querySelector("search-bar");
+    //tidak membutuhkan deklarasi variabel buttonSearchElement
+    //karena sekarang kita dapat mengakses button pada komponen pencarian melalui searchElement
+    //const buttonSearchElement = document.querySelector("#searchButtonElement");
     const clubListElement = document.querySelector("#clubList");
 
     //ubah menajdi async await
@@ -19,9 +24,9 @@ const main = () => {
     };
 
     //arrow function () =>
-    const renderResult = (results) => {
+    const renderResult = results => {
         clubListElement.innerHTML = "";
-        results.forEach(function(club) {
+        results.forEach(club => {
             //destructuring object
             const {
                 name,
@@ -44,13 +49,15 @@ const main = () => {
     };
 
     //arrow function () =>
-    const fallbackResult = (message) => {
+    const fallbackResult = message => {
         clubListElement.innerHTML = "";
         //Template literals `value`
         clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     };
 
-    buttonSearchElement.addEventListener("click", onButtonSearchClicked);
+    //tidak digunakan
+    //buttonSearchElement.addEventListener("click", onButtonSearchClicked);
+    searchElement.clickEvent = onButtonSearchClicked;
 };
 
 //karena cuma satu maka export default

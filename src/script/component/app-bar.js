@@ -8,6 +8,7 @@ class AppBar extends HTMLElement {
     }
 
     //dijadikan nilai pada this.innerHTML
+    //render element html
     render() {
         this.innerHTML = `<h2>Club Finder</h2>`;
     }
