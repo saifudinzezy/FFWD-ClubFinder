@@ -1,3 +1,5 @@
+//import app-bar
+import "./src/script/component/app-bar.js";
 //import data yang dibutuhkan disetiap file
 import main from "./src/script/view/main.js";
 

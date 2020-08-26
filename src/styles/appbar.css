@@ -1,4 +1,7 @@
-.app-bar {
+app-bar {
+    /*custom element standarnya merupakan inline element,
+    sehingga tidak akan mengisi panjang lebar parent element-nya. */
+    display: block;
     padding: 16px;
     width: 100%;
     background-color: cornflowerblue;
