@@ -1,3 +1,5 @@
+//Karena kita menggunakan elemen <club-list>
+import '../component/club-list.js';
 //karena berkas main.js perlu kode pada berkas search-bar.js tereksekusi,
 import '../component/search-bar.js';
 //import data yang dibutuhkan disetiap file
@@ -10,7 +12,7 @@ const main = () => {
     //tidak membutuhkan deklarasi variabel buttonSearchElement
     //karena sekarang kita dapat mengakses button pada komponen pencarian melalui searchElement
     //const buttonSearchElement = document.querySelector("#searchButtonElement");
-    const clubListElement = document.querySelector("#clubList");
+    const clubListElement = document.querySelector("club-list");
 
     //ubah menajdi async await
     //memanggil fun async seperti sync
@@ -25,34 +27,36 @@ const main = () => {
 
     //arrow function () =>
     const renderResult = results => {
-        clubListElement.innerHTML = "";
-        results.forEach(club => {
-            //destructuring object
-            const {
-                name,
-                fanArt,
-                description
-            } = club;
+        // clubListElement.innerHTML = "";
+        // results.forEach(club => {
+        //     //destructuring object
+        //     const {
+        //         name,
+        //         fanArt,
+        //         description
+        //     } = club;
 
-            const clubElement = document.createElement("div");
-            clubElement.setAttribute("class", "club");
+        //     const clubElement = document.createElement("div");
+        //     clubElement.setAttribute("class", "club");
 
-            //Template literals `value`
-            clubElement.innerHTML = `
-                <img class="fan-art-club" src="${fanArt}" alt="Fan Art">
-                <div class="club-info">
-                    <h2>${name}</h2>
-                    <p>${description}</p>
-                </div>`;
-            clubListElement.appendChild(clubElement);
-        })
+        //     //Template literals `value`
+        //     clubElement.innerHTML = `
+        //         <img class="fan-art-club" src="${fanArt}" alt="Fan Art">
+        //         <div class="club-info">
+        //             <h2>${name}</h2>
+        //             <p>${description}</p>
+        //         </div>`;
+        //     clubListElement.appendChild(clubElement);
+        // })
+        clubListElement.clubs = results;
     };
 
     //arrow function () =>
     const fallbackResult = message => {
-        clubListElement.innerHTML = "";
-        //Template literals `value`
-        clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+        // clubListElement.innerHTML = "";
+        // //Template literals `value`
+        // clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+        clubListElement.renderError(message);
     };
 
     //tidak digunakan
