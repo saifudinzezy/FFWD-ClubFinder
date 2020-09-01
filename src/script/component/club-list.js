@@ -2,6 +2,13 @@
 import './club-item.js';
 
 class ClubList extends HTMLElement {
+    constructor() {
+        super();
+        this.shadowDOM = this.attachShadow({
+            mode: "open"
+        });
+    }
+
     //Fungsi set clubs digunakan untuk menetapkan properti this._clubs pada class ini.
     //properti tersebut akan digunakan pada fungsi render dalam membuat custom element <club-item>
     set clubs(clubs) {
@@ -10,7 +17,7 @@ class ClubList extends HTMLElement {
     }
 
     render() {
-        this.innerHTML = "";
+        this.shadowDOM.innerHTML = "";
         //iterasinya kita akan mendapatkan individual club dan pada saat itu juga kita buat custom element <club-item>
         //Pada tiap elemen <club-item> dibuat sebagai child dari element <club-list>
         this._clubs.forEach(club => {
@@ -19,14 +26,25 @@ class ClubList extends HTMLElement {
             //setter value club untuk child
             clubItemElement.club = club
                 //tambahkan sbg item
-            this.appendChild(clubItemElement);
+            this.shadowDOM.appendChild(clubItemElement);
         })
     }
 
     //hasil pencarian mengalami kegagalan atau tidak ditemukkan
     renderError(message) {
-        this.innerHTML = "";
-        this.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+        this.shadowDOM.innerHTML = `
+       <style>
+           .placeholder {
+               font-weight: lighter;
+               color: rgba(0,0,0,0.5);
+               -webkit-user-select: none;
+               -moz-user-select: none;
+               -ms-user-select: none;
+               user-select: none;
+           }
+       </style>
+       `;
+        this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     }
 }
 
