@@ -48,6 +48,8 @@ const main = () => {
         //         </div>`;
         //     clubListElement.appendChild(clubElement);
         // })
+
+        //memanggil fungsi setter club-list.js
         clubListElement.clubs = results;
     };
 
@@ -56,6 +58,8 @@ const main = () => {
         // clubListElement.innerHTML = "";
         // //Template literals `value`
         // clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+
+        //memanggil fungsi setter club-list.js
         clubListElement.renderError(message);
     };
 

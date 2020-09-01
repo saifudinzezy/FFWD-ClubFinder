@@ -14,8 +14,11 @@ class ClubList extends HTMLElement {
         //iterasinya kita akan mendapatkan individual club dan pada saat itu juga kita buat custom element <club-item>
         //Pada tiap elemen <club-item> dibuat sebagai child dari element <club-list>
         this._clubs.forEach(club => {
+            //club-item dari club-item.js
             const clubItemElement = document.createElement("club-item");
+            //setter value club untuk child
             clubItemElement.club = club
+                //tambahkan sbg item
             this.appendChild(clubItemElement);
         })
     }
