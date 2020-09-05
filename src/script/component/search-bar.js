@@ -65,7 +65,7 @@ class SearchBar extends HTMLElement {
                 }
 
                 .search-container > button {
-                    width: 23% ;
+                    width: 23%;
                     cursor: pointer;
                     margin-left: auto;
                     padding: 16px;
@@ -82,12 +82,12 @@ class SearchBar extends HTMLElement {
                     }
 
                     .search-container > input {
-                        width: 100 % ;
+                        width: 100%;
                         margin-bottom: 12px;
                     }
 
-                    .search - container > button {
-                        width: 100 % ;
+                    .search-container > button {
+                        width: 100%;
                     }
             }
         </style>
@@ -99,7 +99,7 @@ class SearchBar extends HTMLElement {
        `;
 
         //terapkan this._clickEvent sebagai event pada element <button> 
-        this.shadowDOM.innerHTMLquerySelector("#searchButtonElement").addEventListener("click", this._clickEvent);
+        this.shadowDOM.querySelector("#searchButtonElement").addEventListener("click", this._clickEvent);
     }
 }
 //definisikan custom element yang kita buat agar dapat digunakan pada DOM

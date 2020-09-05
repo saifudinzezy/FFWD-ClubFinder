@@ -18,36 +18,44 @@ class ClubItem extends HTMLElement {
     render() {
         this.shadowDOM.innerHTML = `
         <style>
-            club - item {
+            club-item {
                 display: block;
-                margin - bottom: 18 px;
-                box - shadow: 0 4 px 8 px 0 rgba(0, 0, 0, 0.2);
-                border - radius: 10 px;
+                margin-bottom: 18px;
+                box-shadow: 0 4px 8px 0rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
                 overflow: hidden;
             }
 
-            club - item.fan - art - club {
-                    width: 100 % ;
-                    max - height: 300 px;
-                    object - fit: cover;
-                    object - position: center;
-            }
-
-            .club - info {
-                padding: 24 px;
-            }
-
-            .club - info > h2 {
-                font - weight: lighter;
-            }
-
-            .club - info > p {
-                margin - top: 10 px;
+            :host {
+                display: block;
+                margin-bottom: 18px;
+                box-shadow: 0 4px 8px 0rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
                 overflow: hidden;
-                text - overflow: ellipsis;
-                display: -webkit - box; -
-                webkit - box - orient: vertical; -
-                webkit - line - clamp: 10;
+            }
+
+            .fan-art-club {
+                    width: 100%;
+                    max-height: 300px;
+                    object-fit: cover;
+                    object-position: center;
+            }
+
+            .club-info {
+                padding: 24px;
+            }
+
+            .club-info > h2 {
+                font-weight: lighter;
+            }
+
+            .club-info > p {
+                margin-top: 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box; 
+                -webkit-box-orient: vertical; 
+                -webkit-line-clamp: 10;
                 /* number of lines to show */
             }
         </style>
